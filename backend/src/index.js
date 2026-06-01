@@ -41,4 +41,13 @@ app.listen(PORT, () => {
 });
 
 export { prisma };
+// Change this:
+app.listen(5000, () => console.log('Server running'))
+
+// To this:
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(5000, () => console.log('Server running'))
+}
+
+module.exports = app  // Add this line at the bottom
 
